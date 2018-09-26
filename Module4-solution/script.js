@@ -78,18 +78,18 @@ function listNamesUsingMap(name){
 console.log("-----------------");
 names.map(listNamesUsingMap);
 
-names.reduce()
+// names.reduce()
 
-var greetings = names.reduce( function(total, name){
-  if (firstLetter === 'j') {
+// var greetings = names.reduce( function(total, name){
+//   if (firstLetter === 'j') {
    
-    push.byeSpeaker.speakSimple(name);
-  } else {
-    pushhelloSpeaker.speakSimple(name);
+//     push.byeSpeaker.speakSimple(name);
+//   } else {
+//     pushhelloSpeaker.speakSimple(name);
     
-  }
-  return total + amount
-}), {hello: [], bye: []};
+//   }
+//   return total + amount
+// }), {hello: [], bye: []};
 //console.log(greetings);
 
 
