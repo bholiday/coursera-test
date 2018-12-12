@@ -1,0 +1,30 @@
+<h1>My Info</h1>
+
+   <div ng-controller='MyinfoController as myinfo'>
+     
+      <div ng-if="registered">
+         <!-- code to render a large video block-->
+     
+     
+         FirstName: {{ firstNameSaved}}
+         <br>
+         LastName: {{ lastNameSaved}}
+         <br>
+         Email: {{ emailSaved}}
+         <br>
+         Phone: {{ phoneSaved}}
+         <br>
+         MenuNumber: {{ menuNumSaved}}
+         <br><br>
+         TItle: {{ menuItemTitle}}
+         <br>
+         Description: {{ menuItemDesc}}
+         <img class="img-responsive" width="250" height="150" ng-src="{{myinfo.apiPath}}/images/{{menuNumSaved}}.jpg">
+      
+
+      </div>
+      <div ng-if="!registered">
+         Not Signed Up Yet.  <a ui-sref="public.signup">Sign up Now!</a>
+
+      </div>
+   </div>

@@ -1,0 +1,68 @@
+<h1>Signup Form</h1>
+
+   <div>
+      
+      <form name='regForm' ng-submit="submit()"  ng-controller="SignupController" novalidate>
+
+        <input type="text" name="firstname" style="color:black" placeholder="Firstname"
+          ng-model="firstname"
+          required
+          minlength="4"
+          ng-maxlength="10">
+          
+          <span
+            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+            firstname must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+            firstname must not be longer than 10 characters
+          </span>
+          <br>
+
+          <input type="text" name="lastname" style="color:black" placeholder="Lastname"
+          ng-model="lastname"
+          required
+          minlength="4"
+          ng-maxlength="10">
+          
+          <span
+            ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+            lastname must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+            lastname must not be longer than 10 characters
+          </span>
+          <br>
+
+        <input type="email" name="email" style="color:black" placeholder="Email"
+          ng-model="email"
+          required>
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" style="color:black" placeholder="Phone ###-###-####"
+          ng-model="phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+        
+          <input type="text" name="menunum" style="color:black" placeholder="Menu Number"
+          ng-model="menunum" ng-blur="checkMenuNum(menunum)">
+          {{ errorMessage }}
+          <br>
+
+        <button style="color:black"
+          ng-disabled="regForm.$invalid"
+          ng-click="signup.submit()">Submit</button>
+
+          <div style="margin-top: 10px;">
+            Form valid? {{ regForm.$valid }}
+          </div>
+
+          {{ saveMessage }}
+      </form>
+   </div>
